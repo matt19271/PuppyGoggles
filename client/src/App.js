@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import Spinner from './Spinner'
-import Images from './Images'
-import Buttons from './Buttons'
-import { API_URL } from './config'
+import Spinner from './Components/Spinner'
+import Images from './Components/Images'
+import Buttons from './Components/Buttons'
+// import { API_URL } from './config'
 import './App.css'
 
 export default class App extends Component {
