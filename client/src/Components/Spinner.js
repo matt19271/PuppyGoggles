@@ -1,8 +1,8 @@
 import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBowlingBall } from '@fortawesome/free-solid-svg-icons'
+import logo from '../logo.svg';
+import '../App.css';
 
 export default () => 
-  <div className='spinner fadein'>
-    <FontAwesomeIcon icon={faBowlingBall} size='5x' color='#3B5998' />
+  <div>
+    <img src={logo} className="App-logo" alt="logo" />
   </div>

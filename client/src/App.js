@@ -13,26 +13,26 @@ export default class App extends Component {
   }
 
   onChange = e => {
-    const files = Array.from(e.target.files)
-    this.setState({ uploading: true })
+    // const files = Array.from(e.target.files)
+    // this.setState({ uploading: true })
 
-    const formData = new FormData()
+    // const formData = new FormData()
 
-    files.forEach((file, i) => {
-      formData.append(i, file)
-    })
+    // files.forEach((file, i) => {
+    //   formData.append(i, file)
+    // })
 
-    fetch(`${API_URL}/image-upload`, {
-      method: 'POST',
-      body: formData
-    })
-    .then(res => res.json())
-    .then(images => {
-      this.setState({ 
-        uploading: false,
-        images
-      })
-    })
+    // fetch(`${API_URL}/image-upload`, {
+    //   method: 'POST',
+    //   body: formData
+    // })
+    // .then(res => res.json())
+    // .then(images => {
+    //   this.setState({ 
+    //     uploading: false,
+    //     images
+    //   })
+    // })
   }
 
   removeImage = id => {
