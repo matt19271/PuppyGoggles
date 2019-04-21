@@ -1,5 +1,6 @@
 package com.puppygoggles.Main;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -19,23 +20,23 @@ public class MyDatabase {
 
 	}
 	
-	public void writeToLost(String breed) throws InterruptedException, ExecutionException {
+	public void writeToLost(String fileName, ArrayList<String> breeds) throws InterruptedException, ExecutionException {
 		FirestoreOptions firestoreOptions = FirestoreOptions.getDefaultInstance().toBuilder().setProjectId("puppygoggles").build();
 		Firestore db = firestoreOptions.getService();
-/*		Random rand = new Random(); 
-		  
-        // Generate random integers in range 0 to 999 
-        int lostid = rand.nextInt(10000);*/
 		DocumentReference docRef = db.collection("LostDogs").document();
-		// Add document data  with id "alovelace" using a hashmap
+		// Add document data using a hashmap
 		Map<String, Object> data = new HashMap<>();
-		data.put("Breed", breed);
+		data.put("fileName", fileName);
+		
+		for(int i = 0; i < breeds.size(); i++) {
+			data.put("Breed " + (i + 1), breeds.get(i));
+		}
+		
 		//asynchronously write data
 		ApiFuture<WriteResult> result = docRef.set(data);
 		// ...
 		// result.get() blocks on response
 		System.out.println("Update time : " + result.get().getUpdateTime());
-		//losti++;
 	}
 	
 	public void writeToFound(String breed) throws InterruptedException, ExecutionException {

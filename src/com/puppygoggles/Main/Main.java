@@ -1,7 +1,10 @@
 package com.puppygoggles.Main;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.net.URLEncoder;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -9,6 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
+import com.google.api.client.http.GenericUrl;
+import com.google.api.client.http.HttpRequest;
+import com.google.api.client.http.HttpRequestFactory;
+import com.google.api.client.http.HttpResponse;
 import com.google.cloud.vision.v1.AnnotateImageRequest;
 import com.google.cloud.vision.v1.AnnotateImageResponse;
 import com.google.cloud.vision.v1.BatchAnnotateImagesResponse;
@@ -24,6 +32,7 @@ public class Main {
 	  
 	  File inputFile = new File("breeds.txt");
 	  ArrayList<String> breeds = new ArrayList<>();
+	  ArrayList<String> descriptions = new ArrayList<>();
 	  try(Scanner in = new Scanner(inputFile)){
 		  while(in.hasNext()) {
 			  String inputBreed = in.nextLine().toLowerCase();
@@ -36,6 +45,11 @@ public class Main {
 	  
 	  MyDatabase temp = new MyDatabase();
 	  temp.connect();
+	  
+	  
+	// Set up and execute a Google Cloud Storage request.
+	  MyStorage pic = new MyStorage();
+	  pic.getPicture();
 	  
     // Instantiates a client
     try (ImageAnnotatorClient vision = ImageAnnotatorClient.create()) {
@@ -70,14 +84,14 @@ public class Main {
 
         for (EntityAnnotation annotation : res.getLabelAnnotationsList()) {
         	String description = annotation.getDescription();
-        	System.out.println(description);
+        	//System.out.println(description);
         	if(breeds.contains(description.toLowerCase())) {
-        		temp.writeToLost(description);
-        		break;
+        		descriptions.add(description);
         	}
          /* annotation.getAllFields().forEach((k, v) ->
               System.out.printf("%s : %s\n", k, v.toString()));*/
         }
+        temp.writeToLost(fileName, descriptions);
       }
     }
   }
