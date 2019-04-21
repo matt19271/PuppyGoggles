@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Spinner from './Components/Spinner'
 import Images from './Components/Images'
 import Buttons from './Components/Buttons'
+import Navbar from './Components/Navbar'
 // import { API_URL } from './config'
 import './App.css'
 
@@ -57,6 +58,7 @@ export default class App extends Component {
 
     return (
       <div>
+        <Navbar />
         <div className='buttons'>
           {content()}
         </div>
