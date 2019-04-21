@@ -24,7 +24,7 @@ public class MyStorage {
 		
 
 		// The name of a bucket, e.g. "my-bucket"
-		String bucketName = "staging.puppygoggles.appspot.com";
+/*		String bucketName = "staging.puppygoggles.appspot.com";
 		
 		 String directory = "my_directory/";
 		 Page<Blob> blobs = storage.list(bucketName, BlobListOption.currentDirectory(),
@@ -33,7 +33,7 @@ public class MyStorage {
 		 while (blobIterator.hasNext()) {
 		   Blob blob = blobIterator.next();
 		   // do something with the blob
-		 }
+		 }*/
 		
 		//storage.list(bucketName, BlobListOption.fields(Storage.BlobField.values()));
 		

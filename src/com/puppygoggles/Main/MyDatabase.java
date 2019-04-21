@@ -3,7 +3,6 @@ package com.puppygoggles.Main;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 import java.util.concurrent.ExecutionException;
 
 import com.google.api.core.ApiFuture;
@@ -12,14 +11,7 @@ import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.FirestoreOptions;
 import com.google.cloud.firestore.WriteResult;
 
-public class MyDatabase {
-	int lostid = 0;
-	int foundi = 0;
-	
-	public void connect() throws InterruptedException, ExecutionException {
-
-	}
-	
+public class MyDatabase {	
 	public void writeToLost(String fileName, ArrayList<String> breeds) throws InterruptedException, ExecutionException {
 		FirestoreOptions firestoreOptions = FirestoreOptions.getDefaultInstance().toBuilder().setProjectId("puppygoggles").build();
 		Firestore db = firestoreOptions.getService();
@@ -39,12 +31,12 @@ public class MyDatabase {
 		System.out.println("Update time : " + result.get().getUpdateTime());
 	}
 	
-	public void writeToFound(String breed) throws InterruptedException, ExecutionException {
+	/*public void writeToFound(String breed) throws InterruptedException, ExecutionException {
 		FirestoreOptions firestoreOptions = FirestoreOptions.getDefaultInstance().toBuilder().setProjectId("puppygoggles").build();
 		Firestore db = firestoreOptions.getService();
 		
 		DocumentReference docRef = db.collection("FoundDogs").document();
-		// Add document data  with id "alovelace" using a hashmap
+		// Add document data using a hashmap
 		Map<String, Object> data = new HashMap<>();
 		data.put("Breed", breed);
 		//asynchronously write data
@@ -52,6 +44,6 @@ public class MyDatabase {
 		// ...
 		// result.get() blocks on response
 		System.out.println("Update time : " + result.get().getUpdateTime());
-	}
+	}*/
 
 }
