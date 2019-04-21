@@ -1,8 +1,8 @@
 import React from 'react';
-import { Jumbotron, Button, Media, Container } from 'reactstrap';
+import { Jumbotron, Button, Media } from 'reactstrap';
 import PuppyLogo from '../images/puppygoggles.jpg'
 
-const Home = (props) => {
+const Home = () => {
   return (
     <div>
       <Jumbotron>

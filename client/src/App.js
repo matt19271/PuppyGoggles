@@ -61,15 +61,17 @@ export default class App extends Component {
     }
 
     return (
-      <Router>
+      <div>
         <Navbar />
-        <Switch>
-          <Route exact path="/" component={Home}/>
-          <Route exact path="/LostMyDog" component={Upload}/>
-          <Route exact path="/FoundLostDog" component={Upload}/>
-          <Route exact path="/PuppyPics" component={PuppyPics}/>
-        </Switch>
-      </Router>
+        <Router>
+          <Switch>
+            <Route exact path="/" component={Home}/>
+            <Route exact path="/LostMyDog" component={Upload}/>
+            <Route exact path="/FoundLostDog" component={Upload}/>
+            <Route exact path="/PuppyPics" component={PuppyPics}/>
+          </Switch>
+        </Router>
+      </div>
     )
   }
 }
