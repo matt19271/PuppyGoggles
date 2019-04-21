@@ -3,6 +3,9 @@ import Spinner from './Components/Spinner'
 import Images from './Components/Images'
 import Buttons from './Components/Buttons'
 import Navbar from './Components/Navbar'
+import  { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import {Button} from 'reactstrap'
+import Home from './Components/HomePage'
 // import { API_URL } from './config'
 import './App.css'
 
@@ -57,12 +60,13 @@ export default class App extends Component {
     }
 
     return (
-      <div>
+      <Router>
         <Navbar />
-        <div className='buttons'>
-          {content()}
-        </div>
-      </div>
+        <Switch>
+          <Route exact path="/" component={Home}/>
+          <Route><Button>{content()}</Button></Route>
+        </Switch>
+      </Router>
     )
   }
 }
