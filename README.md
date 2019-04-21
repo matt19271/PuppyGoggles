@@ -6,6 +6,7 @@ A program using Googles Vision API and Google's Firestore to compare images of u
 The front end guides users to upload an image of dogs they may have lost or found. When these images are added to the website puppygoggles.com (using domain.com)
 which is built using React, the react server is supposed to communicate with the Java backend; however, we underestimated the difficulty of Spring with the time constraints and were not able
 to connect with our frontend. 
+A web crawler will be implemented to crawl animal shelter websites and lost-and-found pages to amass a wider database of lost dogs.
 
 **The Back End**
 
