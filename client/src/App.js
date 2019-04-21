@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import Spinner from './Components/Spinner'
 import Images from './Components/Images'
-import Buttons from './Components/Buttons'
 import Navbar from './Components/Navbar'
 import  { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import {Button} from 'reactstrap'
 import Home from './Components/HomePage'
+import Upload from './Components/Upload'
+import PuppyPics from './Components/PuppyPics'
+import {Button} from 'reactstrap'
 // import { API_URL } from './config'
 import './App.css'
 
@@ -55,7 +56,7 @@ export default class App extends Component {
         case images.length > 0:
           return <Images images={images} removeImage={this.removeImage} />
         default:
-          return <Buttons onChange={this.onChange} />
+          return <Button onChange={this.onChange} />
       }
     }
 
@@ -64,7 +65,9 @@ export default class App extends Component {
         <Navbar />
         <Switch>
           <Route exact path="/" component={Home}/>
-          <Route><Button>{content()}</Button></Route>
+          <Route exact path="/LostMyDog" component={Upload}/>
+          <Route exact path="/FoundLostDog" component={Upload}/>
+          <Route exact path="/PuppyPics" component={PuppyPics}/>
         </Switch>
       </Router>
     )

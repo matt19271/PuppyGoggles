@@ -47,10 +47,10 @@ export default class Example extends React.Component {
                   Lost/Found
                 </DropdownToggle>
                 <DropdownMenu right>
-                  <DropdownItem>
+                  <DropdownItem href="/LostMyDog">
                     I lost my puppy
                   </DropdownItem>
-                  <DropdownItem>
+                  <DropdownItem href="/FoundLostDog">
                     I found a lost puppy
                   </DropdownItem>
                 </DropdownMenu>
