@@ -1,6 +1,8 @@
 # PuppyGoggles
 A program using Googles Vision API and Google's Firestore to compare images of user uploaded dog images against images on shelter sites to reunite lost dogs with their owners.
 
+[![PuppyGoggles](https://img.youtube.com/vi/2-EUJL57Cfc/hqdefault.jpg)](https://youtu.be/2-EUJL57Cfc)
+
 **The Front End**
 
 The front end guides users to upload an image of dogs they may have lost or found. When these images are added to the website puppygoggles.com (using domain.com)
